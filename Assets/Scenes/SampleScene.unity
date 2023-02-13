@@ -237,7 +237,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1665261100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,12 +277,13 @@ GameObject:
   m_Component:
   - component: {fileID: 2087565554}
   - component: {fileID: 2087565553}
-  - component: {fileID: 2087565555}
   - component: {fileID: 2087565557}
   - component: {fileID: 2087565556}
+  - component: {fileID: 2087565555}
   - component: {fileID: 2087565558}
-  m_Layer: 0
-  m_Name: Triangle
+  - component: {fileID: 2087565559}
+  m_Layer: 9
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -430,3 +431,20 @@ MonoBehaviour:
   horizontalMove: 0
   verticalMove: 0
   runSpeed: 5
+--- !u!114 &2087565559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087565550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19b3873e9bda37342959474580a88153, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0.2
+  bullet: {fileID: 115685444030286449, guid: e2a23c34fae77eb4ab0c52a5a4b7071b, type: 3}
+  piercebullet: {fileID: 115685444030286449, guid: ae1ab5c42ad9f124984fa5ae24139ffb, type: 3}
+  triple: 0
+  pierce: 0

@@ -23,7 +23,7 @@ public class HealthController : MonoBehaviour
     public void DoDamage(float val)
     {
         health -= val;
-        if(health < 0)
+        if(health <= 0)
         {
             //destroy and do something particles idk
             Destroy(this.gameObject);
