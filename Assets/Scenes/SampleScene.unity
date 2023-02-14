@@ -237,7 +237,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1665261100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,8 +250,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f9fdc87676f5a489f7e9cd70a1106f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnDelay: 2
+  spawnDelay: 0.3
   spawnObj: {fileID: 2923137613849578019, guid: ca74fec31dc54d148bf16ebabd618ee7, type: 3}
+  spawnRange: 3
 --- !u!4 &1665261101
 Transform:
   m_ObjectHideFlags: 0
@@ -369,6 +370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  bloodParticle: {fileID: 8155375462166201131, guid: da3852bfee6a7e343bf0946ebe313869, type: 3}
 --- !u!50 &2087565556
 Rigidbody2D:
   serializedVersion: 4

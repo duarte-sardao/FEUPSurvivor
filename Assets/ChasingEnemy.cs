@@ -10,6 +10,7 @@ public class ChasingEnemy : EnemyController
     {
         base.Start();
         rb = GetComponent<Rigidbody2D>();
+        speed = Random.Range(speed - speed*0.05f, speed + speed*0.05f);
     }
 
     void FixedUpdate()

@@ -102,6 +102,7 @@ MonoBehaviour:
   damage: 10
   pierce: 1
   velocity: 8
+  timeAlive: 2
 --- !u!61 &115685444030286222
 BoxCollider2D:
   m_ObjectHideFlags: 0

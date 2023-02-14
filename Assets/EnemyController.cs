@@ -16,7 +16,7 @@ public class EnemyController : HealthController
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            player.DoDamage(Time.deltaTime * damage);
+            player.DoDamage(Time.deltaTime * damage, collision.GetContact(0).point);
         }
     }
 }
