@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -10,10 +11,15 @@ public class PlayerAttack : MonoBehaviour
     public bool triple;
     public bool pierce;
     private float last = 0f;
+    public GameObject attackCountdown;
+    public float cooldownTime;
+    private float coolTime = 0;
+
     private void Update()
     {
         last += Time.deltaTime;
-        if(last > delay && Input.GetMouseButton(0))
+        coolTime = Mathf.Clamp(coolTime-Time.deltaTime, 0, cooldownTime);
+        if(last > delay && Input.GetButton("Fire1"))
         {
             last = 0f;
             var pos = (GetCurrentMousePosition()-this.transform.position).normalized;
@@ -26,6 +32,11 @@ public class PlayerAttack : MonoBehaviour
                 SpawnBullet(pos);
             }
         }
+        if(coolTime <= 0 && Input.GetButton("Fire2")){
+            coolTime = cooldownTime;
+
+        }
+        attackCountdown.transform.localScale = new Vector3(coolTime/cooldownTime, attackCountdown.transform.localScale.y, 1);
     }
 
     private void SpawnBullet(Vector3 pos)
