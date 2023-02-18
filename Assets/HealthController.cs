@@ -36,7 +36,12 @@ public class HealthController : MonoBehaviour
         if(health <= 0)
         {
             //destroy and do something particles idk
-            Destroy(this.gameObject);
+            Die();
         }
+    }
+
+    protected virtual void Die()
+    {
+        Destroy(this.gameObject);
     }
 }

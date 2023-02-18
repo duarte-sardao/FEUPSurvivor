@@ -19,4 +19,15 @@ public class EnemyController : HealthController
             player.DoDamage(Time.deltaTime * damage, collision.GetContact(0).point);
         }
     }
+
+
+    protected override void Die()
+    {
+        var obj = new GameObject();
+        obj.transform.position = this.transform.position;
+        obj.transform.localScale = this.transform.localScale;
+        obj.AddComponent<SpriteRenderer>().sprite = this.GetComponent<SpriteRenderer>().sprite;
+        obj.AddComponent<FadeUp>();
+        Destroy(gameObject);
+    }
 }
