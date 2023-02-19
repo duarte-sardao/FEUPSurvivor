@@ -15,6 +15,11 @@ public class ChasingEnemy : EnemyController
 
     void FixedUpdate()
     {
+        Chase();
+    }
+
+    protected virtual void Chase()
+    {
         rb.velocity = (player.transform.position - this.transform.position).normalized * speed;
     }
 }
