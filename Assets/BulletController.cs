@@ -19,7 +19,9 @@ public class BulletController : MonoBehaviour
             if (!pierce)
                 Destroy(this.gameObject);
         }
-        catch (System.Exception) { };
+        catch (System.Exception) {
+            Destroy(this.gameObject);
+        };
     }
 
     public void Move(Vector3 dir)
@@ -27,7 +29,7 @@ public class BulletController : MonoBehaviour
         this.GetComponent<Rigidbody2D>().velocity = dir * velocity;
         this.transform.right = dir;
     }
-    private void Update(){
+    protected void Update(){
         killTime += Time.deltaTime;
         if (killTime > timeAlive){
             Destroy(this.gameObject);

@@ -31,7 +31,8 @@ public class ShooterEnemy : ChasingEnemy
     private void Shoot()
     {
         shotsLeft--;
-        Instantiate(projectile, this.transform.position, Quaternion.identity);
+        var obj = Instantiate(projectile, this.transform.position, Quaternion.identity);
+        obj.GetComponent<BulletController>().Move((player.transform.position - this.transform.position).normalized);
         if(shotsLeft == 0)
         {
             shotsLeft = shotCount;
