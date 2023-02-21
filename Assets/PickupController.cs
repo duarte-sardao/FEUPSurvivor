@@ -8,8 +8,8 @@ public abstract class PickupController : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            Act(collision.gameObject.GetComponent<HealthController>());
+            Act(collision.gameObject);
         }
     }
-    public abstract void Act(HealthController pl);
+    public abstract void Act(GameObject pl);
 }

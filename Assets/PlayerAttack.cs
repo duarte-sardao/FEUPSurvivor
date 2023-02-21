@@ -8,8 +8,6 @@ public class PlayerAttack : MonoBehaviour
     public float delay = 0.5f;
     public GameObject bullet;
     public GameObject piercebullet;
-    public bool triple;
-    public bool pierce;
     private float last = 0f;
     public GameObject attackCountdown;
     public GameObject attackObj;
@@ -18,13 +16,33 @@ public class PlayerAttack : MonoBehaviour
     private float attackTimeLeft = 0;
     private float coolTime = 0;
 
+    public float powerupTime;
+    private float[] powerups = { 0,0,0,0}; //0 triple, 1 pierce 2 mel 3 shi
+    public Image[] powerImg;
+
     private void Start()
     {
         attackObj.SetActive(false);
     }
+    public void SetPower(int p)
+    {
+        powerups[p] = powerupTime;       
+    }
+    private void UpdatePowerups()
+    {
+        for(int i = 0; i < powerups.Length; i++)
+        {
+            if (powerups[i] > 0)
+            {
+                powerups[i] = Mathf.Clamp(powerups[i] - Time.deltaTime, 0, powerupTime);
+                powerImg[i].fillAmount = powerups[i] / powerupTime;
+            }
+        }
+    }
 
     private void Update()
     {
+        UpdatePowerups();
         last += Time.deltaTime;
         coolTime = Mathf.Clamp(coolTime - Time.deltaTime, 0, cooldownTime);
         if (last > delay && Input.GetButton("Fire1"))
@@ -32,7 +50,7 @@ public class PlayerAttack : MonoBehaviour
             last = 0f;
             var pos = (GetCurrentMousePosition()-this.transform.position).normalized;
             SpawnBullet(pos);
-            if(triple)
+            if(powerups[0] > 0)
             {
                 pos = Quaternion.AngleAxis(-20, Vector3.forward) * pos;
                 SpawnBullet(pos);
@@ -60,7 +78,7 @@ public class PlayerAttack : MonoBehaviour
     private void SpawnBullet(Vector3 pos)
     {
         var spawn = this.bullet;
-        if (pierce)
+        if (powerups[1] > 0)
             spawn = piercebullet;
         Instantiate(spawn, this.transform.position, Quaternion.identity).GetComponent<BulletController>().Move(pos);
     }

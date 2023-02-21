@@ -5,9 +5,10 @@ using UnityEngine;
 public class HealthPickup : PickupController
 {
     public float value;
-    public override void Act(HealthController pl)
+    public override void Act(GameObject pl)
     {
-        if (pl.DoHeal(value))
+        var h = pl.GetComponent<HealthController>();
+        if (h.DoHeal(value))
             Destroy(this.gameObject);
     }
 }
