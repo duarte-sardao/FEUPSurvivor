@@ -5,13 +5,14 @@ using UnityEngine;
 public class BloodParticle : MonoBehaviour
 {
     public float timeToFade;
+    public float speedRange;
     private float timeAcc;
     void Start()
     {
         var size = Random.Range(0.05f, 0.15f);
         this.transform.localScale = new Vector3(size, size, 0);
         this.transform.position = new Vector3(this.transform.position.x + Random.Range(-0.1f, 0.1f), this.transform.position.y + Random.Range(-0.1f, 0.1f), -1);
-        this.GetComponent<Rigidbody2D>().velocity = new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f), 0);
+        this.GetComponent<Rigidbody2D>().velocity = new Vector3(Random.Range(-speedRange, speedRange), Random.Range(-speedRange, speedRange), 0);
     }
 
     void Update()

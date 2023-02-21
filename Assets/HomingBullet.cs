@@ -5,6 +5,7 @@ using UnityEngine;
 public class HomingBullet : BulletController
 {
     private GameObject player;
+    public GameObject trail;
     private void Start()
     {
         player = FindObjectOfType<PlayerMovement>().gameObject;
@@ -14,6 +15,11 @@ public class HomingBullet : BulletController
     private void UpdateMove()
     {
         base.Move((player.transform.position - this.transform.position).normalized);
+    }
+
+    private void FixedUpdate()
+    {
+        Instantiate(trail, this.transform.position, Quaternion.identity);
     }
 
 

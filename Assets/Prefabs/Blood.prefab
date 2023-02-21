@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToFade: 0.3
+  speedRange: 3
 --- !u!50 &4049858183965665255
 Rigidbody2D:
   serializedVersion: 4
