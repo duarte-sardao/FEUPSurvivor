@@ -825,7 +825,7 @@ GameObject:
   - component: {fileID: 881808179}
   - component: {fileID: 881808178}
   - component: {fileID: 881808186}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
