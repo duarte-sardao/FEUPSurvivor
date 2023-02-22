@@ -19,6 +19,7 @@ public class PlayerAttack : MonoBehaviour
     public float powerupTime;
     private float[] powerups = { 0,0,0,0}; //0 triple, 1 pierce 2 mel 3 shi
     public Image[] powerImg;
+    public GameObject shield;
 
     private void Start()
     {
@@ -40,11 +41,19 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
+    public int MeleeMult()
+    {
+        if (powerups[2] > 0f)
+            return 3;
+        return 1;
+    }
+
     private void Update()
     {
         UpdatePowerups();
+        shield.SetActive(powerups[3] > 0);
         last += Time.deltaTime;
-        coolTime = Mathf.Clamp(coolTime - Time.deltaTime, 0, cooldownTime);
+        coolTime = Mathf.Clamp(coolTime - Time.deltaTime * MeleeMult(), 0, cooldownTime);
         if (last > delay && Input.GetButton("Fire1"))
         {
             last = 0f;
@@ -67,8 +76,8 @@ public class PlayerAttack : MonoBehaviour
         }
         if(attackTimeLeft > 0)
         {
-            attackObj.transform.rotation *= Quaternion.Euler(Vector3.forward * Time.deltaTime * (150 / attackTime));
-            attackTimeLeft -= Time.deltaTime;
+            attackObj.transform.rotation *= Quaternion.Euler(Vector3.forward * Time.deltaTime * MeleeMult() * (150 / attackTime));
+            attackTimeLeft -= Time.deltaTime * MeleeMult();
             if (attackTimeLeft <= 0)
                 attackObj.SetActive(false);
         }
