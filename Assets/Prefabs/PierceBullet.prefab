@@ -99,10 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4d9165c953711743a20b69cf5563014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
-  pierce: 1
+  damage: 300
   velocity: 8
   timeAlive: 2
+  pierce: 1
 --- !u!61 &115685444030286222
 BoxCollider2D:
   m_ObjectHideFlags: 0

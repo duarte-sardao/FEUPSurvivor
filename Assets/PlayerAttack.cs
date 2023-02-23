@@ -92,7 +92,7 @@ public class PlayerAttack : MonoBehaviour
         var spawn = this.bullet;
         if (powerups[1] > 0)
             spawn = piercebullet;
-        Instantiate(spawn, this.transform.position, Quaternion.identity).GetComponent<BulletController>().Move(pos, rb.velocity);
+        Instantiate(spawn, this.transform.position, Quaternion.identity).GetComponent<BulletController>().Move(pos);
     }
 
     private Vector3 GetCurrentMousePosition()

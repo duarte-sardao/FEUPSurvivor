@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    public int damage;
-    public bool pierce; 
+    public float damage;
     public float velocity;
-    public float timeAlive; 
+    public float timeAlive;
+    public bool pierce;
 
     private void Start(){
-        Invoke("Kill", timeAlive);
+        Invoke(nameof(Kill), timeAlive);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -18,21 +18,16 @@ public class BulletController : MonoBehaviour
         try
         {
             var health = collision.gameObject.GetComponent<HealthController>();
-            health.DoDamage(damage, collision.GetContact(0).point); 
-            if (!pierce) //If bulled type endures even after colliding with objects
-                Destroy(this.gameObject);
+            var toRemove = health.health;
+            health.DoDamage(Mathf.Min(toRemove, damage), collision.GetContact(0).point);
+            RemovePoints(toRemove);
         }
         catch (System.Exception) { //in case collided object has no health component (wall)
             Destroy(this.gameObject);
         };
     }
 
-    public void Move(Vector3 dir, Vector2 vel){ //For player
-        Move(dir);
-        this.GetComponent<Rigidbody2D>().velocity += vel; //Adds player velocity to bullet to make shooting more accurate while moving
-    }
-
-    public void Move(Vector3 dir) //For enemies
+    public void Move(Vector3 dir)
     {
         this.GetComponent<Rigidbody2D>().velocity = dir * velocity;
         this.transform.right = dir;
@@ -40,5 +35,14 @@ public class BulletController : MonoBehaviour
 
     protected void Kill(){
         Destroy(this.gameObject);
+    }
+
+    private void RemovePoints(float r)
+    {
+        damage -= r;
+        if(!pierce || damage <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

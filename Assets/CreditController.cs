@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CreditController : MonoBehaviour
 {
-    static int creditCount = 0; //Score count
+    protected static int creditCount = 0; //Score count
     static TMPro.TMP_Text text;
 
     private void Start()

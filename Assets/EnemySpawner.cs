@@ -50,7 +50,7 @@ public class EnemySpawner : MonoBehaviour
 
     protected virtual Vector3 GetPosition()
     {
-        return new Vector3(Random.Range(-x_range, x_range), Random.Range(-y_range, y_range), 0f);
+        return new Vector3(this.transform.position.x + Random.Range(-x_range, x_range), this.transform.position.y + Random.Range(-y_range, y_range), 0f);
     }
 
     protected void Spawn()
