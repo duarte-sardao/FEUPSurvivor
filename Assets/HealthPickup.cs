@@ -8,7 +8,7 @@ public class HealthPickup : PickupController
     public override void Act(GameObject pl)
     {
         var h = pl.GetComponent<HealthController>();
-        if (h.DoHeal(value))
+        if (h.DoHeal(value)) //If player heal succeeds, pickup gets destroyed
             Destroy(this.gameObject);
     }
 }

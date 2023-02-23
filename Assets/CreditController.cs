@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class CreditController : MonoBehaviour
 {
-    static int creditCount = 0;
+    static int creditCount = 0; //Score count
     static TMPro.TMP_Text text;
 
     private void Start()
     {
         if(text == null)
         {
-            text = GameObject.Find("Canvas/ScoreText").GetComponent<TMPro.TMP_Text>();
+            text = GameObject.Find("Canvas/ScoreText").GetComponent<TMPro.TMP_Text>(); //Score text
         }
     }
 

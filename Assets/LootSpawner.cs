@@ -13,7 +13,7 @@ public class LootSpawner : EnemySpawner
         int Mask1 = 1 << WallLayer;
         int Mask2 = 1 << BlockLayer;
 
-        layerMask = Mask1 | Mask2;
+        layerMask = Mask1 | Mask2; //Layer mask represents occupied space that cant be occupied by loot
         base.Start();
     }
     protected override Vector3 GetPosition()
@@ -25,7 +25,7 @@ public class LootSpawner : EnemySpawner
             pos = new Vector3(Random.Range(-x_range, x_range), Random.Range(-y_range, y_range), 0f);
             RaycastHit2D hit = Physics2D.GetRayIntersection(new Ray(pos, -Vector3.forward), Mathf.Infinity, layerMask);
             valid = hit.collider == null;
-        } while (!valid);
+        } while (!valid); //Finds new position for Loot by getting random pos until unnocupied pos
         return pos;
     }
 }

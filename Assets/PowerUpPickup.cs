@@ -8,7 +8,7 @@ public class PowerUpPickup : PickupController
     public override void Act(GameObject pl)
     {
         var a = pl.GetComponent<PlayerAttack>();
-        a.SetPower(power);
+        a.SetPower(power); //Applies power up to player
         Destroy(this.gameObject);
     }
 }

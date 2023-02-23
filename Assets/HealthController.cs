@@ -13,7 +13,7 @@ public class HealthController : MonoBehaviour
         maxHealth = health;
     }
 
-    public bool DoHeal(float val)
+    public bool DoHeal(float val) //Increases health of object, limited by maxHealth
     {
         if (health >= maxHealth)
             return false;
@@ -21,21 +21,20 @@ public class HealthController : MonoBehaviour
         return true;
     }
 
-    private void SpawnBlood(int val, Vector3 pos)
+    private void SpawnBlood(int val, Vector3 pos) //Spawns random amount of blood particles
     {
-        for(int i = 0; i < Random.Range(Mathf.CeilToInt(val/2), val+1)*3; i++)
+        for(int i = 0; i < Random.Range(Mathf.CeilToInt(val/2), val+1)*3; i++) 
         {
             Instantiate(bloodParticle, pos, Quaternion.identity);
         }
     }
 
-    public void DoDamage(float val, Vector3 pos)
+    public void DoDamage(float val, Vector3 pos) //Decreases health of object and detects death
     {
         health -= val;
         SpawnBlood(Mathf.CeilToInt(val), pos);
         if(health <= 0)
         {
-            //destroy and do something particles idk
             Die();
         }
     }

@@ -10,7 +10,7 @@ public class ChasingEnemy : EnemyController
     {
         base.Start();
         rb = GetComponent<Rigidbody2D>();
-        speed = Random.Range(speed - speed*0.05f, speed + speed*0.05f);
+        speed = Random.Range(speed - speed*0.05f, speed + speed*0.05f); //Sets enemy speed at random range
     }
 
     void FixedUpdate()
@@ -20,6 +20,6 @@ public class ChasingEnemy : EnemyController
 
     protected virtual void Chase()
     {
-        rb.velocity = (player.transform.position - this.transform.position).normalized * speed;
+        rb.velocity = (player.transform.position - this.transform.position).normalized * speed; //Updates velocity to chase player
     }
 }

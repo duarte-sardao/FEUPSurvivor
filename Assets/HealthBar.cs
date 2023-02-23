@@ -16,6 +16,6 @@ public class HealthBar : MonoBehaviour
 
     void Update()
     {
-        healthBar.fillAmount = healthScript.health / 100;
+        healthBar.fillAmount = healthScript.health / 100; //Updates health bar
     }
 }

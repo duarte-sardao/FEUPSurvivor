@@ -21,9 +21,12 @@ public class PlayerAttack : MonoBehaviour
     public Image[] powerImg;
     public GameObject shield;
 
+    private Rigidbody2D rb;
+
     private void Start()
     {
         attackObj.SetActive(false);
+        rb = GetComponent<Rigidbody2D>();
     }
     public void SetPower(int p)
     {
@@ -89,7 +92,7 @@ public class PlayerAttack : MonoBehaviour
         var spawn = this.bullet;
         if (powerups[1] > 0)
             spawn = piercebullet;
-        Instantiate(spawn, this.transform.position, Quaternion.identity).GetComponent<BulletController>().Move(pos);
+        Instantiate(spawn, this.transform.position, Quaternion.identity).GetComponent<BulletController>().Move(pos, rb.velocity);
     }
 
     private Vector3 GetCurrentMousePosition()

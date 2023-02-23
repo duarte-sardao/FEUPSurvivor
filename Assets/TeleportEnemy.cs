@@ -13,13 +13,13 @@ public class TeleportEnemy : ChasingEnemy
         base.Start();
         telSpeed = speed;
         speed *= 0.1f;
-        InvokeRepeating("Teleport", telepInterval, telepInterval);
-        InvokeRepeating("Twitch", 0f, 0.5f);
+        InvokeRepeating("Teleport", telepInterval, telepInterval); //invokes enemy teleportation every interval
+        InvokeRepeating("Twitch", 0f, 0.5f); //makes enemy twitch every 0,5 sec
     }
 
     private void Twitch()
     {
-        this.transform.position += new Vector3(Random.Range(-0.3f, 0.3f), Random.Range(-0.3f, 0.3f), 0);
+        this.transform.position += new Vector3(Random.Range(-0.3f, 0.3f), Random.Range(-0.3f, 0.3f), 0); //enemy position is randomized a little for twitching
     }
     private void Teleport()
     {

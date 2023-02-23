@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         verticalMove = Input.GetAxisRaw("Vertical") * runSpeed;
         if(horizontalMove != 0)
-            sprite.flipX = (horizontalMove < 0);
+            sprite.flipX = (horizontalMove < 0); //For displaying correct player orientation
     }
 
     private void FixedUpdate()
