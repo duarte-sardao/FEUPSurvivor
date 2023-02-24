@@ -248,18 +248,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 208523184}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88f9fdc87676f5a489f7e9cd70a1106f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e0b6e2c9b853ef4d81ff62c9d625114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spawnables:
   - obj: {fileID: 2923137613849578019, guid: ca74fec31dc54d148bf16ebabd618ee7, type: 3}
-    points: 20
+    points: 70
   - obj: {fileID: 2923137613849578019, guid: 2bf4aeec9522e0d4faec799984a87030, type: 3}
-    points: 2
+    points: 10
+  - obj: {fileID: 526279487351404177, guid: 95b8b08cc68c2054197f1bd6ee741f5d, type: 3}
+    points: 5
+  - obj: {fileID: 2923137613849578019, guid: d53c3bd0255382446867f60b409ecd8b, type: 3}
+    points: 10
+  - obj: {fileID: 526279487351404177, guid: b57a2bed88e5e1042871ea7de89ab2ba, type: 3}
+    points: 5
+  - obj: {fileID: 4505460017754544064, guid: f9f9d73f7d120c443adeb193972a895f, type: 3}
+    points: 5
   x_range: 3
   y_range: 4
   min_time: 0.3
   max_time: 0.6
+  credLevel: 0
 --- !u!1 &301248052
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,18 +866,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 673238053}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88f9fdc87676f5a489f7e9cd70a1106f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e0b6e2c9b853ef4d81ff62c9d625114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spawnables:
   - obj: {fileID: 2923137613849578019, guid: ca74fec31dc54d148bf16ebabd618ee7, type: 3}
-    points: 20
+    points: 70
   - obj: {fileID: 2923137613849578019, guid: 2bf4aeec9522e0d4faec799984a87030, type: 3}
-    points: 2
+    points: 10
+  - obj: {fileID: 526279487351404177, guid: 95b8b08cc68c2054197f1bd6ee741f5d, type: 3}
+    points: 5
+  - obj: {fileID: 2923137613849578019, guid: d53c3bd0255382446867f60b409ecd8b, type: 3}
+    points: 10
+  - obj: {fileID: 526279487351404177, guid: b57a2bed88e5e1042871ea7de89ab2ba, type: 3}
+    points: 5
+  - obj: {fileID: 4505460017754544064, guid: f9f9d73f7d120c443adeb193972a895f, type: 3}
+    points: 5
   x_range: 8
   y_range: 3
   min_time: 0.3
   max_time: 0.6
+  credLevel: 0
 --- !u!1 &793371325
 GameObject:
   m_ObjectHideFlags: 0
@@ -1677,7 +1695,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1665261101}
-  - component: {fileID: 1665261100}
+  - component: {fileID: 1665261102}
   m_Layer: 0
   m_Name: SpawnerLeft
   m_TagString: Untagged
@@ -1685,27 +1703,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1665261100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1665261099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88f9fdc87676f5a489f7e9cd70a1106f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnables:
-  - obj: {fileID: 2923137613849578019, guid: ca74fec31dc54d148bf16ebabd618ee7, type: 3}
-    points: 20
-  - obj: {fileID: 2923137613849578019, guid: 2bf4aeec9522e0d4faec799984a87030, type: 3}
-    points: 2
-  x_range: 3
-  y_range: 4
-  min_time: 0.3
-  max_time: 0.6
 --- !u!4 &1665261101
 Transform:
   m_ObjectHideFlags: 0
@@ -1721,6 +1718,36 @@ Transform:
   m_Father: {fileID: 519420032}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1665261102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665261099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0b6e2c9b853ef4d81ff62c9d625114, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnables:
+  - obj: {fileID: 2923137613849578019, guid: ca74fec31dc54d148bf16ebabd618ee7, type: 3}
+    points: 70
+  - obj: {fileID: 2923137613849578019, guid: 2bf4aeec9522e0d4faec799984a87030, type: 3}
+    points: 10
+  - obj: {fileID: 526279487351404177, guid: 95b8b08cc68c2054197f1bd6ee741f5d, type: 3}
+    points: 5
+  - obj: {fileID: 2923137613849578019, guid: d53c3bd0255382446867f60b409ecd8b, type: 3}
+    points: 10
+  - obj: {fileID: 526279487351404177, guid: b57a2bed88e5e1042871ea7de89ab2ba, type: 3}
+    points: 5
+  - obj: {fileID: 4505460017754544064, guid: f9f9d73f7d120c443adeb193972a895f, type: 3}
+    points: 5
+  x_range: 3
+  y_range: 4
+  min_time: 0.3
+  max_time: 0.6
+  credLevel: 0
 --- !u!1 &1773684925
 GameObject:
   m_ObjectHideFlags: 0
@@ -1870,18 +1897,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 1903430116}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88f9fdc87676f5a489f7e9cd70a1106f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e0b6e2c9b853ef4d81ff62c9d625114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spawnables:
   - obj: {fileID: 2923137613849578019, guid: ca74fec31dc54d148bf16ebabd618ee7, type: 3}
-    points: 20
+    points: 70
   - obj: {fileID: 2923137613849578019, guid: 2bf4aeec9522e0d4faec799984a87030, type: 3}
-    points: 2
+    points: 10
+  - obj: {fileID: 526279487351404177, guid: 95b8b08cc68c2054197f1bd6ee741f5d, type: 3}
+    points: 5
+  - obj: {fileID: 2923137613849578019, guid: d53c3bd0255382446867f60b409ecd8b, type: 3}
+    points: 10
+  - obj: {fileID: 526279487351404177, guid: b57a2bed88e5e1042871ea7de89ab2ba, type: 3}
+    points: 5
+  - obj: {fileID: 4505460017754544064, guid: f9f9d73f7d120c443adeb193972a895f, type: 3}
+    points: 5
   x_range: 8
   y_range: 3
   min_time: 0.3
   max_time: 0.6
+  credLevel: 0
 --- !u!1 &2025720670
 GameObject:
   m_ObjectHideFlags: 0

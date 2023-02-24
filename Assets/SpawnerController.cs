@@ -34,7 +34,9 @@ public class SpawnerController : CreditController
         Stack<int> choices = new Stack<int>(Reshuffle(arr));
         for(int i = 0; i <= creditCount; i+=60)
         {
-            spawners[choices.Pop()].SetActive(true);
+            var spawner = spawners[choices.Pop()];
+            spawner.SetActive(true);
+            spawner.GetComponent<EnemySpawner>().credLevel = Mathf.FloorToInt(creditCount / 45);
         }
         Invoke("SelectSpawners", Random.Range(minToSwitch, maxToSwitch));
     }

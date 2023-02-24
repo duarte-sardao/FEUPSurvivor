@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LootSpawner : EnemySpawner
+public class LootSpawner : BasicSpawner
 {
     private int layerMask;
     protected override void Start()
