@@ -30,7 +30,8 @@ public class BulletController : MonoBehaviour
     public void Move(Vector3 dir)
     {
         this.GetComponent<Rigidbody2D>().velocity = dir * velocity;
-        this.transform.right = dir;
+        if(this.gameObject.layer == 7)
+            this.transform.right = dir;
     }
 
     protected void Kill(){
