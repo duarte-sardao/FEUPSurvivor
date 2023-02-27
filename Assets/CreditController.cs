@@ -6,12 +6,15 @@ public class CreditController : MonoBehaviour
 {
     protected static int creditCount = 0; //Score count
     static TMPro.TMP_Text text;
+    static GameObject hat;
 
     private void Start()
     {
         if(text == null)
         {
             text = GameObject.Find("Canvas/ScoreText").GetComponent<TMPro.TMP_Text>(); //Score text
+            hat = GameObject.Find("Player/PlayerCap");
+            hat.SetActive(false);
         }
     }
 
@@ -21,6 +24,8 @@ public class CreditController : MonoBehaviour
         {
             creditCount++;
             UpdateText();
+            if (creditCount == 300)
+                hat.SetActive(true);
             Destroy(this.gameObject);
         }
     }
