@@ -52,7 +52,7 @@ public class LootSpawner : BasicSpawner
         do
         {
             pos = tileWorldLocations[Random.Range(0, tileWorldLocations.Count - 1)];
-            pos = new Vector3(pos.x, pos.y, pos.z);
+            pos = new Vector3(pos.x, pos.y, 0);
             RaycastHit2D hit = Physics2D.GetRayIntersection(new Ray(pos, -Vector3.forward), Mathf.Infinity, layerMask);
             valid = hit.collider == null;
         } while (!valid); //Finds new position for Loot by getting random pos until unnocupied pos
