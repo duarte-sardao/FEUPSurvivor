@@ -24,7 +24,7 @@ public class BasicSpawner : MonoBehaviour
     public float y_range;
     public float min_time;
     public float max_time;
-    private float targ_time;
+    protected float targ_time;
     private float acc_time;
 
     protected virtual void Start()
@@ -67,7 +67,7 @@ public class BasicSpawner : MonoBehaviour
 
     }
 
-    protected void GetTime()
+    protected virtual void GetTime()
     {
         targ_time = Random.Range(min_time, max_time);
         acc_time = 0;

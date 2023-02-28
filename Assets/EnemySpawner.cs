@@ -5,6 +5,14 @@ using UnityEngine;
 public class EnemySpawner : BasicSpawner
 {
     public int credLevel = 0;
+    public float extraDelay = 0;
+
+    protected override void GetTime()
+    {
+        base.GetTime();
+        targ_time += extraDelay;
+        Debug.Log(targ_time);
+    }
 
     protected override GameObject GetObject()
     {
