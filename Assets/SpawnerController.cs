@@ -38,7 +38,7 @@ public class SpawnerController : CreditController
             spawner.SetActive(true);
             var scrpt = spawner.GetComponent<EnemySpawner>();
             scrpt.credLevel = Mathf.FloorToInt(creditCount / 45);
-            scrpt.extraDelay = Mathf.Floor(creditCount / 60) * 0.1f;
+            scrpt.extraDelay = Mathf.Floor(creditCount / 60) * 0.15f;
         }
         Invoke("SelectSpawners", Random.Range(minToSwitch, maxToSwitch));
     }
