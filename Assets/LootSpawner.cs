@@ -33,11 +33,12 @@ public class LootSpawner : BasicSpawner
             }
         }
         //remove tiles if theres foreground tiles
-        foreach (var pos in tilemapBack.cellBounds.allPositionsWithin)
+        foreach (var pos in tilemapFront.cellBounds.allPositionsWithin)
         {
             Vector3Int localPlace = new Vector3Int(pos.x, pos.y, pos.z);
-            Vector3 place = tilemapBack.CellToWorld(localPlace);
-            if (tilemapBack.HasTile(localPlace) && tileWorldLocations.Contains(localPlace))
+            Vector3 place = tilemapFront.CellToWorld(localPlace);
+            place = new Vector3(place.x, place.y, place.z+1);
+            if (tilemapFront.HasTile(localPlace) && tileWorldLocations.Contains(place))
             {
                 tileWorldLocations.Remove(place);
             }
