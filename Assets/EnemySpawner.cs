@@ -11,7 +11,7 @@ public class EnemySpawner : BasicSpawner
     {
         base.GetTime();
         targ_time += extraDelay;
-        Debug.Log(targ_time);
+        //Debug.Log(targ_time);
     }
 
     protected override GameObject GetObject()
