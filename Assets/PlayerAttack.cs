@@ -94,7 +94,6 @@ public class PlayerAttack : MonoBehaviour
                 attackObj.SetActive(false);
         }
         attackCountdown.transform.localScale = new Vector3(coolTime/cooldownTime, attackCountdown.transform.localScale.y, 1);
-        shootingDir = new Vector2(0, 0);
     }
 
     private void FireAlt(Vector2 dir)
