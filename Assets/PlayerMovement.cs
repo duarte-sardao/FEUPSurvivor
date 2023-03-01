@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         movement = actions.FindActionMap("movement", true).FindAction("move", true);
+        actions.FindActionMap("movement").Enable();
 
 
         rb = GetComponent<Rigidbody2D>();
