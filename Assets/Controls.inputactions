@@ -174,12 +174,12 @@
                 },
                 {
                     "name": "ControllerShoot",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "f8a148f3-a6e4-4e55-b4ae-84bf28641800",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
                     "name": "ControllerAlt",
@@ -189,6 +189,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ControllerAim",
+                    "type": "Value",
+                    "id": "b7a8fbbc-bd2d-4df7-bacc-e21b3bf1e00d",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -217,7 +226,7 @@
                 {
                     "name": "",
                     "id": "5ced9d9e-fdc2-4ba8-883b-57365a7a48b3",
-                    "path": "<Gamepad>/rightStick",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -238,12 +247,12 @@
                 },
                 {
                     "name": "",
-                    "id": "8e20f537-962d-4394-a49b-487937d25e25",
-                    "path": "<Gamepad>/rightShoulder",
+                    "id": "de3635e8-f2ac-4a72-a6ae-c40b3e4fafa7",
+                    "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ControllerAlt",
+                    "action": "ControllerAim",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
