@@ -12,6 +12,8 @@ public class ShooterEnemy : ChasingEnemy
     public float shotCount; //Max number of shots by enemy
     private float shotsLeft; //Shots left to shoot
 
+    public float range;
+
     protected override void Start()
     {
         base.Start();
@@ -21,7 +23,7 @@ public class ShooterEnemy : ChasingEnemy
     private void Update()
     {
         shootCount += Time.deltaTime;
-        if(shootCount > shootRate)
+        if(shootCount > shootRate && (player.transform.position-this.transform.position).magnitude < range)
         {
             shootCount = 0;
             InvokeRepeating("Shoot", 0f, shotIntervalRate); //Starts shooting every intervale rate by invoking

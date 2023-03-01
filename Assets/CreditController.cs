@@ -7,6 +7,7 @@ public class CreditController : MonoBehaviour
     protected static int creditCount = 0; //Score count
     static TMPro.TMP_Text text;
     static GameObject hat;
+    static AudioSource sound;
 
     private void Start()
     {
@@ -14,6 +15,7 @@ public class CreditController : MonoBehaviour
         {
             text = GameObject.Find("Canvas/ScoreText").GetComponent<TMPro.TMP_Text>(); //Score text
             hat = GameObject.Find("Player/PlayerCap");
+            sound = GameObject.Find("Sounds/Credit").GetComponent<AudioSource>();
             hat.SetActive(false);
         }
     }
@@ -22,6 +24,7 @@ public class CreditController : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
+            sound.Play();
             creditCount++;
             UpdateText();
             if (creditCount == 300)

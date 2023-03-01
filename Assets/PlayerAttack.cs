@@ -31,6 +31,11 @@ public class PlayerAttack : MonoBehaviour
     private InputAction controlleralt;
     private InputAction controlleraim;
 
+    public AudioSource powerupSound;
+    public AudioSource powerdownSound;
+    public AudioSource shootSound;
+    public AudioSource altSound;
+
     private void Start()
     {
         InputActionMap map = actions.FindActionMap("shooting", true);
@@ -44,6 +49,7 @@ public class PlayerAttack : MonoBehaviour
     }
     public void SetPower(int p)
     {
+        powerupSound.Play();
         powerups[p] = powerupTime;       
     }
     private void UpdatePowerups()
@@ -53,6 +59,8 @@ public class PlayerAttack : MonoBehaviour
             if (powerups[i] > 0)
             {
                 powerups[i] = Mathf.Clamp(powerups[i] - Time.deltaTime, 0, powerupTime);
+                if (powerups[i] == 0)
+                    powerdownSound.Play();
                 powerImg[i].fillAmount = powerups[i] / powerupTime;
             }
         }
@@ -101,6 +109,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void FireAlt(Vector2 dir)
     {
+        altSound.Play();
         coolTime = cooldownTime;
         attackObj.SetActive(true);
         attackTimeLeft = attackTime;
@@ -109,6 +118,7 @@ public class PlayerAttack : MonoBehaviour
     }
 
     private void Fire(Vector2 dir) {
+        shootSound.Play();
         last = 0f;
         if(dir.magnitude == 0)
             dir = (GetCurrentMousePosition() - this.transform.position);

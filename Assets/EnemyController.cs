@@ -6,11 +6,14 @@ public class EnemyController : HealthController
 {
     public float damage;
     protected HealthController player;
+    public GameObject corpse;
+    private AudioSource hurtSound;
 
     protected override void Start()
     {
         base.Start(); //calls Health controller
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthController>();
+        hurtSound = this.GetComponent<AudioSource>();
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -20,14 +23,19 @@ public class EnemyController : HealthController
         }
     }
 
+    public override void DoDamage(float val, Vector3 pos)
+    {
+        hurtSound.Play();
+        base.DoDamage(val, pos);
+    }
+
 
     protected override void Die()
     {
-        var obj = new GameObject(); //For fading ghosts when killed
-        obj.transform.position = this.transform.position;
+        var obj = Instantiate(corpse, this.transform.position, Quaternion.identity);
         obj.transform.localScale = this.transform.localScale;
-        obj.AddComponent<SpriteRenderer>().sprite = this.GetComponent<SpriteRenderer>().sprite;
-        obj.AddComponent<FadeUp>();
+        obj.GetComponent<SpriteRenderer>().sprite = this.GetComponent<SpriteRenderer>().sprite;
+        obj.GetComponent<AudioSource>().pitch = hurtSound.pitch + Random.Range(-0.1f, 0.1f);
         Destroy(gameObject);
     }
 }

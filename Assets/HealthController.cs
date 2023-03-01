@@ -13,7 +13,7 @@ public class HealthController : MonoBehaviour
         maxHealth = health;
     }
 
-    public bool DoHeal(float val) //Increases health of object, limited by maxHealth
+    public virtual bool DoHeal(float val) //Increases health of object, limited by maxHealth
     {
         if (health >= maxHealth)
             return false;
@@ -29,7 +29,7 @@ public class HealthController : MonoBehaviour
         }
     }
 
-    public void DoDamage(float val, Vector3 pos) //Decreases health of object and detects death
+    public virtual void DoDamage(float val, Vector3 pos) //Decreases health of object and detects death
     {
         health -= val;
         SpawnBlood(Mathf.CeilToInt(val), pos);

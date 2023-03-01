@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer hatSprite;
     private Animator animator;
 
+    public AudioSource walking;
+
     void Start()
     {
         movement = actions.FindActionMap("movement", true).FindAction("move", true);
@@ -43,5 +45,6 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.velocity = moved;
         animator.SetFloat("Speed", rb.velocity.magnitude);
+        walking.volume = rb.velocity.magnitude * 0.15f / runSpeed;
     }
 }
