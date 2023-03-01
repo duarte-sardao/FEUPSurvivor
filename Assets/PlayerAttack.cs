@@ -29,6 +29,7 @@ public class PlayerAttack : MonoBehaviour
     private InputAction mousealt;
     private InputAction controllershoot;
     private InputAction controlleralt;
+    private InputAction controlleraim;
 
     private void Start()
     {
@@ -37,6 +38,7 @@ public class PlayerAttack : MonoBehaviour
         mousealt = map.FindAction("MouseAlt", true);
         controllershoot = map.FindAction("ControllerShoot", true);
         controlleralt = map.FindAction("ControllerAlt", true);
+        controlleraim = map.FindAction("ControllerAim", true);
         map.Enable();
         attackObj.SetActive(false);
     }
@@ -70,11 +72,12 @@ public class PlayerAttack : MonoBehaviour
         last += Time.deltaTime;
         coolTime = Mathf.Clamp(coolTime - Time.deltaTime * MeleeMult(), 0, cooldownTime);
 
+        shootingDir = controlleraim.ReadValue<Vector2>();
+
         if (last > delay) { //normal attack
             if (mouseshoot.ReadValue<float>() > 0)
                 Fire((GetCurrentMousePosition() - this.transform.position));
-            shootingDir = controllershoot.ReadValue<Vector2>();
-            if (shootingDir.magnitude != 0)
+            if (controllershoot.ReadValue<float>() > 0)
                 Fire(shootingDir);
         }
 
