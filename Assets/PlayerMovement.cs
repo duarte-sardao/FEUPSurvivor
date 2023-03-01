@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float horizontalMove = 0f;
-    public float verticalMove = 0f;
+    public InputActionAsset actions;
+    public InputAction movement;
+
+
+    public Vector2 moved;
+
     public float runSpeed;
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
@@ -14,6 +19,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        movement = actions.FindActionMap("movement", true).FindAction("move", true);
+
+
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
@@ -22,18 +30,17 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-        verticalMove = Input.GetAxisRaw("Vertical") * runSpeed;
-        if (horizontalMove != 0)
+        moved = movement.ReadValue<Vector2>() * runSpeed;
+        if (moved.x != 0)
         {
-            sprite.flipX = (horizontalMove < 0); //For displaying correct player orientation
+            sprite.flipX = (moved.x < 0); //For displaying correct player orientation
             hatSprite.flipX = sprite.flipX;
         }
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontalMove, verticalMove);
+        rb.velocity = moved;
         animator.SetFloat("Speed", rb.velocity.magnitude);
     }
 }
