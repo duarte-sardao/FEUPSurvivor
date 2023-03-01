@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -21,12 +22,23 @@ public class PlayerAttack : MonoBehaviour
     public Image[] powerImg;
     public GameObject shield;
 
-    private Rigidbody2D rb;
+    private Vector2 shootingDir = new Vector2(0,0);
+
+    public InputActionAsset actions;
+    private InputAction mouseshoot;
+    private InputAction mousealt;
+    private InputAction controllershoot;
+    private InputAction controlleralt;
 
     private void Start()
     {
+        InputActionMap map = actions.FindActionMap("shooting", true);
+        mouseshoot = map.FindAction("MouseShoot", true);
+        mousealt = map.FindAction("MouseAlt", true);
+        controllershoot = map.FindAction("ControllerShoot", true);
+        controlleralt = map.FindAction("ControllerAlt", true);
+        map.Enable();
         attackObj.SetActive(false);
-        rb = GetComponent<Rigidbody2D>();
     }
     public void SetPower(int p)
     {
@@ -57,27 +69,24 @@ public class PlayerAttack : MonoBehaviour
         shield.SetActive(powerups[3] > 0);
         last += Time.deltaTime;
         coolTime = Mathf.Clamp(coolTime - Time.deltaTime * MeleeMult(), 0, cooldownTime);
-        if (last > delay && Input.GetButton("Fire1"))
+
+        if (last > delay) { //normal attack
+            if (mouseshoot.ReadValue<float>() > 0)
+                Fire((GetCurrentMousePosition() - this.transform.position));
+            shootingDir = controllershoot.ReadValue<Vector2>();
+            if (shootingDir.magnitude != 0)
+                Fire(shootingDir);
+        }
+
+        if(coolTime <= 0)//alt attack (start)
         {
-            last = 0f;
-            var pos = (GetCurrentMousePosition()-this.transform.position).normalized;
-            SpawnBullet(pos);
-            if(powerups[0] > 0)
-            {
-                pos = Quaternion.AngleAxis(-20, Vector3.forward) * pos;
-                SpawnBullet(pos);
-                pos = Quaternion.AngleAxis(40, Vector3.forward) * pos;
-                SpawnBullet(pos);
-            }
+            if (mousealt.ReadValue<float>() > 0)
+                FireAlt(GetCurrentMousePosition() - this.transform.position);
+            if (controlleralt.ReadValue<float>() > 0)
+                FireAlt(shootingDir);
         }
-        if(coolTime <= 0 && Input.GetButton("Fire2")){//start secondary attack
-            coolTime = cooldownTime;
-            attackObj.SetActive(true);
-            attackTimeLeft = attackTime;
-            attackObj.transform.rotation = Quaternion.identity;
-            attackObj.transform.rotation *= Quaternion.Euler(Vector3.forward*(SignedAngleBetween(new Vector3(1, 0, 0), (GetCurrentMousePosition() - this.transform.position), Vector3.forward)-75));
-        }
-        if(attackTimeLeft > 0)
+
+        if(attackTimeLeft > 0) //doing alt attack
         {
             attackObj.transform.rotation *= Quaternion.Euler(Vector3.forward * Time.deltaTime * MeleeMult() * (150 / attackTime));
             attackTimeLeft -= Time.deltaTime * MeleeMult();
@@ -85,6 +94,31 @@ public class PlayerAttack : MonoBehaviour
                 attackObj.SetActive(false);
         }
         attackCountdown.transform.localScale = new Vector3(coolTime/cooldownTime, attackCountdown.transform.localScale.y, 1);
+        shootingDir = new Vector2(0, 0);
+    }
+
+    private void FireAlt(Vector2 dir)
+    {
+        coolTime = cooldownTime;
+        attackObj.SetActive(true);
+        attackTimeLeft = attackTime;
+        attackObj.transform.rotation = Quaternion.identity;
+        attackObj.transform.rotation *= Quaternion.Euler(Vector3.forward * (SignedAngleBetween(new Vector3(1, 0, 0), dir, Vector3.forward) - 75));
+    }
+
+    private void Fire(Vector2 dir) {
+        last = 0f;
+        if(dir.magnitude == 0)
+            dir = (GetCurrentMousePosition() - this.transform.position);
+        dir = dir.normalized;
+        SpawnBullet(dir);
+        if (powerups[0] > 0)
+        {
+            dir = Quaternion.AngleAxis(-20, Vector3.forward) * dir;
+            SpawnBullet(dir);
+            dir = Quaternion.AngleAxis(40, Vector3.forward) * dir;
+            SpawnBullet(dir);
+        }
     }
 
     private void SpawnBullet(Vector3 pos)

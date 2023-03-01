@@ -151,13 +151,40 @@
             ]
         },
         {
-            "name": "ShootMap",
+            "name": "shooting",
             "id": "e474fe49-d8c1-43e7-a5d1-a368621b37ed",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "MouseShoot",
                     "type": "Button",
                     "id": "928b472a-6f8b-4dcd-bc91-1d695a7eda1b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MouseAlt",
+                    "type": "Button",
+                    "id": "554d8313-75b5-4a3d-b024-f6d5869352f9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ControllerShoot",
+                    "type": "Value",
+                    "id": "f8a148f3-a6e4-4e55-b4ae-84bf28641800",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ControllerAlt",
+                    "type": "Button",
+                    "id": "e0df4814-9930-4afb-bd73-3b726bd09887",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -168,11 +195,55 @@
                 {
                     "name": "",
                     "id": "2fb73921-6ecc-462f-a342-adc4dbc17246",
-                    "path": "",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "MouseShoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4bd2b85f-127a-4572-a56c-7951aa950f13",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseAlt",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5ced9d9e-fdc2-4ba8-883b-57365a7a48b3",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ControllerShoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a1563e3e-ba1d-4722-b64c-025a3dcc11b0",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ControllerAlt",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8e20f537-962d-4394-a49b-487937d25e25",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ControllerAlt",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
