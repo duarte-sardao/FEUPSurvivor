@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CreditController : MonoBehaviour
+public class CreditController : PickupController
 {
     protected static int creditCount = 0; //Score count
     static TMPro.TMP_Text text;
@@ -20,17 +20,14 @@ public class CreditController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public override void Act(GameObject pl)
     {
-        if(collision.CompareTag("Player"))
-        {
-            sound.Play();
-            creditCount++;
-            UpdateText();
-            if (creditCount == 300)
-                hat.SetActive(true);
-            Destroy(this.gameObject);
-        }
+        sound.Play();
+        creditCount++;
+        UpdateText();
+        if (creditCount == 300)
+            hat.SetActive(true);
+        base.Consume();
     }
 
     private void UpdateText()

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class PickupController : MonoBehaviour
 {
+    public LootSpawner spawner;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Player"))
@@ -12,4 +13,10 @@ public abstract class PickupController : MonoBehaviour
         }
     }
     public abstract void Act(GameObject pl);
+
+    public void Consume()
+    {
+        spawner.lootCount--;
+        Destroy(this.gameObject);
+    }
 }

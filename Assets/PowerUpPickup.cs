@@ -9,6 +9,6 @@ public class PowerUpPickup : PickupController
     {
         var a = pl.GetComponent<PlayerAttack>();
         a.SetPower(power); //Applies power up to player
-        Destroy(this.gameObject);
+        base.Consume();
     }
 }

@@ -61,10 +61,9 @@ public class BasicSpawner : MonoBehaviour
         return spawnables[raffle[Random.Range(0, raffle.Count)]].obj; //get a random index from raffle, then get obj it corresponds to
     }
 
-    protected void Spawn()
+    protected virtual void Spawn()
     {
         Instantiate(GetObject(), GetPosition(), Quaternion.identity);
-
     }
 
     protected virtual void GetTime()

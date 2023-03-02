@@ -9,6 +9,8 @@ public class LootSpawner : BasicSpawner
     public Tilemap tilemapBack;
     public Tilemap tilemapFront;
     public List<Vector3> tileWorldLocations;
+    public int lootMax;
+    public int lootCount = 0;
 
     private int layerMask;
     protected override void Start()
@@ -58,5 +60,14 @@ public class LootSpawner : BasicSpawner
             valid = hit.collider == null;
         } while (!valid); //Finds new position for Loot by getting random pos until unnocupied pos
         return pos;
+    }
+
+    protected override void Spawn()
+    {
+        if (lootCount >= lootMax)
+            return;
+        GameObject obj = Instantiate(GetObject(), GetPosition(), Quaternion.identity);
+        obj.GetComponent<PickupController>().spawner = this;
+        lootCount++;
     }
 }

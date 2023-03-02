@@ -9,6 +9,6 @@ public class HealthPickup : PickupController
     {
         var h = pl.GetComponent<HealthController>();
         if (h.DoHeal(value)) //If player heal succeeds, pickup gets destroyed
-            Destroy(this.gameObject);
+            base.Consume();
     }
 }

@@ -85,7 +85,7 @@ public class PlayerAttack : MonoBehaviour
         if (last > delay) { //normal attack
             if (mouseshoot.ReadValue<float>() > 0)
                 Fire((GetCurrentMousePosition() - this.transform.position));
-            if (controllershoot.ReadValue<float>() > 0)
+            else if (controllershoot.ReadValue<float>() > 0)
                 Fire(shootingDir);
         }
 
@@ -93,7 +93,7 @@ public class PlayerAttack : MonoBehaviour
         {
             if (mousealt.ReadValue<float>() > 0)
                 FireAlt(GetCurrentMousePosition() - this.transform.position);
-            if (controlleralt.ReadValue<float>() > 0)
+            else if (controlleralt.ReadValue<float>() > 0)
                 FireAlt(shootingDir);
         }
 

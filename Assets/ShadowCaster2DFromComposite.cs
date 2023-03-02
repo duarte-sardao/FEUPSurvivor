@@ -1,4 +1,4 @@
-using System.Reflection;
+/**using System.Reflection;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -149,7 +149,7 @@ public class ShadowCaster2DFromComposite : MonoBehaviour
             }
         }
         */
-
+/**
         UpdateCompositeShadow(_shadowCasters[path]);
     }
 
@@ -245,4 +245,4 @@ public class ShadowCaster2DFromComposite : MonoBehaviour
         }
     }
 
-}
+}**/
