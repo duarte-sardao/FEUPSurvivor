@@ -283,6 +283,17 @@
                     "action": "open/close",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "79644424-fb3d-495f-b833-51139ef17fa3",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "open/close",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

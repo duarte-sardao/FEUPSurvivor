@@ -13,7 +13,7 @@ public class CreditController : PickupController
     {
         if(text == null)
         {
-            text = GameObject.Find("Canvas/ScoreText").GetComponent<TMPro.TMP_Text>(); //Score text
+            text = GameObject.Find("Hud/ScoreText").GetComponent<TMPro.TMP_Text>(); //Score text
             hat = GameObject.Find("Player/PlayerCap");
             sound = GameObject.Find("Sounds/Credit").GetComponent<AudioSource>();
             hat.SetActive(false);
@@ -27,7 +27,7 @@ public class CreditController : PickupController
         UpdateText();
         if (creditCount == 300)
             hat.SetActive(true);
-        spawner.lootMax++;
+        spawner.lootMax += 2;
         base.Consume();
     }
 
