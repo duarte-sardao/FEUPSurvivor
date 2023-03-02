@@ -27,6 +27,7 @@ public class CreditController : PickupController
         UpdateText();
         if (creditCount == 300)
             hat.SetActive(true);
+        spawner.lootMax++;
         base.Consume();
     }
 
