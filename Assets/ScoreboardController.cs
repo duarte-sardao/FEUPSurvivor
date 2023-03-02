@@ -19,6 +19,7 @@ public class ScoreboardController : MonoBehaviour
 
     void Start()
     {
+        newscore = PlayerPrefs.GetInt("Credits", 0);
         names.Add(PlayerPrefs.GetString("1", "Pereira"));
         scores.Add(PlayerPrefs.GetInt("1", 308));
         names.Add(PlayerPrefs.GetString("2", "Duarte"));

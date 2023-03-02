@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class SceneFadeOutAndLoad : MonoBehaviour
+public class SceneFadeOutAndLoad : CreditController
 {
     public SpriteRenderer img;
 
@@ -15,7 +16,10 @@ public class SceneFadeOutAndLoad : MonoBehaviour
     void Update()
     {
         img.color = new Vector4(img.color.r, img.color.g, img.color.b, img.color.a + Time.deltaTime);
-        //if(img.color.a == 1)
-            //load scene
+        if (img.color.a == 255)
+        {
+            PlayerPrefs.SetInt("Credits", creditCount);
+            SceneManager.LoadScene("ScoreBoard");
+        }
     }
 }
