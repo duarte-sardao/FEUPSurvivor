@@ -22,6 +22,7 @@ public class PauseMenuController : MonoBehaviour
         attack = actions.FindActionMap("shooting", true);
         move = actions.FindActionMap("movement", true);
         help.SetActive(false);
+        pauseMenu.SetActive(false);
     }
 
     private void PauseUnpause(InputAction.CallbackContext context)
@@ -54,6 +55,7 @@ public class PauseMenuController : MonoBehaviour
 
     public void Restart()
     {
+        Unpause();
         SceneManager.LoadScene("GameScene");
     }
     public void Quit()
@@ -63,9 +65,11 @@ public class PauseMenuController : MonoBehaviour
     public void OpenHelp()
     {
         help.SetActive(true);
+        helpopen = true;
     }
     public void CloseHelp()
     {
         help.SetActive(false);
+        helpopen = false;
     }
 }
