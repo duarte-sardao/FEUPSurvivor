@@ -31,6 +31,11 @@ public class CreditController : PickupController
         base.Consume();
     }
 
+    public void Reset()
+    {
+        creditCount = 0;
+    }
+
     private void UpdateText()
     {
         text.text = creditCount + " ECTS";

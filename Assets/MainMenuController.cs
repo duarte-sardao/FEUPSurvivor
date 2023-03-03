@@ -3,15 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenuController : MonoBehaviour
+public class MainMenuController : BasicMenuController
 {
     public GameObject cam;
     public Vector3 camTargPos;
     private Vector3 camtarg = new Vector3(0,0,-10);
-    public void StartGame()
-    {
-        SceneManager.LoadScene("GameScene");
-    }
+
     private void Update()
     {
         var diff = (camtarg - cam.transform.position);
@@ -30,9 +27,5 @@ public class MainMenuController : MonoBehaviour
     public void Help()
     {
         camtarg = camTargPos;
-    }
-    public void Quit()
-    {
-        Application.Quit();
     }
 }

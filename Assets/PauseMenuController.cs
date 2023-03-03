@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class PauseMenuController : MonoBehaviour
+public class PauseMenuController : BasicMenuController
 {
     private bool paused = false;
     private bool helpopen = false;
@@ -56,11 +56,7 @@ public class PauseMenuController : MonoBehaviour
     public void Restart()
     {
         Unpause();
-        SceneManager.LoadScene("GameScene");
-    }
-    public void Quit()
-    {
-        Application.Quit();
+        StartGame();
     }
     public void OpenHelp()
     {
