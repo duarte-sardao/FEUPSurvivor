@@ -22,6 +22,7 @@ public class CreditController : PickupController
 
     public override void Act(GameObject pl)
     {
+        sound.pitch = Random.Range(0.95f, 1.05f);
         sound.Play();
         creditCount++;
         UpdateText();

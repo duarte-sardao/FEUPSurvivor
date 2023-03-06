@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Strings_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: ccc192cdf1706d042977bcdfd6b6c3f8, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 18659119104
+    m_Localized: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68365815808
+    m_Localized: Help
+    m_Metadata:
+      m_Items: []
+  - m_Id: 108031348736
+    m_Localized: Quit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 135193661440
+    m_Localized: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 789601554432
+    m_Localized: Paused
+    m_Metadata:
+      m_Items: []
+  - m_Id: 990017982464
+    m_Localized: Restart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1841700769792
+    m_Localized: Apply yourself!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1973821345792
+    m_Localized: New highscore!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2285667848192
+    m_Localized: Enter name...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2824757547008
+    m_Localized: Save
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

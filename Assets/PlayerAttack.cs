@@ -118,6 +118,7 @@ public class PlayerAttack : MonoBehaviour
     }
 
     private void Fire(Vector2 dir) {
+        shootSound.pitch = Random.Range(0.8f, 1f);
         shootSound.Play();
         last = 0f;
         if(dir.magnitude == 0)
