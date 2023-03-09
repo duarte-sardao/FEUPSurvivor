@@ -23,7 +23,7 @@ public class ScoreboardController : BasicMenuController
         inputField.gameObject.SetActive(false);
         newscore = PlayerPrefs.GetInt("Credits", 0);
         names.Add(PlayerPrefs.GetString("1n", "Pereira"));
-        scores.Add(PlayerPrefs.GetInt("1", 444));
+        scores.Add(PlayerPrefs.GetInt("1", 628));
         names.Add(PlayerPrefs.GetString("2n", "Duarte"));
         scores.Add(PlayerPrefs.GetInt("2", 304));
         for(int i = 3; i <= 5; i++)
